@@ -1,7 +1,7 @@
 extern crate term;
 
-use std::{fs, vec};
-use std::io::{self, Write, Read};
+use std::{fs};
+use std::io::{self, Write};
 use rand::Rng;
 use term::color;
 
@@ -89,7 +89,6 @@ fn read_words_from_file(file_path: &str) -> io::Result<Vec<String>> {
 }
 
 fn main() {
-
     let words = read_words_from_file("src/words.txt").unwrap_or_else(|e| {
         eprintln!("Error reading file: {}", e);
         std::process::exit(1);
@@ -100,5 +99,4 @@ fn main() {
 
     let rand_word = &words[rand_num].to_uppercase();
     game_loop(rand_word);
-
 }
